@@ -37,6 +37,7 @@ public class oauthcallback extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//Check if the user have rejected 
+		System.out.println("oauthcallback");
 	      String error = req.getParameter("error"); 
 	      if ((null != error))
 	    { 
@@ -48,8 +49,13 @@ public class oauthcallback extends HttpServlet {
 	      //OK the user have consented so lets find out about the user 
 	      req.setAttribute("org.apache.catalina.ASYNC_SUPPORTED", true);
 	      AsyncContext ctx = req.startAsync(); 
-	      ctx.start(new GetUserInfo(req, resp, ctx)); 
-	      req.getRequestDispatcher("Login_user_form").forward(req,resp);
+	      ctx.start(new GetUserInfo(req, resp, ctx));
+	      HttpSession sess=req.getSession();
+	      while(sess.getAttribute("name")==null ||sess.getAttribute("email")==null);
+	      if(sess.getAttribute("email").equals("adesh14004@iiitd.ac.in") || sess.getAttribute("email").equals("rishabh14086@iiitd.ac.in"))
+	    	  req.getRequestDispatcher("Filter1").forward(req,resp);
+	      else
+	    	  req.getRequestDispatcher("Form1").forward(req,resp);
 	}
 
 }

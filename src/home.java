@@ -29,6 +29,7 @@ public class home extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("home");
 		// TODO Auto-generated method stub
 		//PrintWriter out=response.getWriter();
 		//out.println("<p><h1>Order ID is: Hello User</h1></p>");

@@ -55,6 +55,6 @@ public class GetUserInfo implements Runnable {
       sess.setAttribute("name", profile.getString("name")); 
       sess.setAttribute("email", profile.getString("email")); 
       asyncCtx.complete(); 
-      System.out.println(sess.getAttribute("name") +" : "+ sess.getAttribute("email"));
+      System.out.println("GetUserInfo: "+sess.getAttribute("name") +" : "+ sess.getAttribute("email"));
    } 
 }

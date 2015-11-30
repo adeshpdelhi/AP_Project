@@ -40,6 +40,7 @@ public class Login_user extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Login_user");
 		ServiceBuilder builder= new ServiceBuilder(); 
 	      OAuthService service = builder.provider(Google2Api.class) 
 	         .apiKey(CLIENT_ID) 

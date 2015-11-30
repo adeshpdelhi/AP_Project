@@ -37,9 +37,10 @@ public class Form1_submit extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Cookie cemail=new Cookie("email",request.getParameter("email"));
-		Cookie cname=new Cookie("name",request.getParameter("name"));
-		Cookie cenrollno=new Cookie("enrollno",request.getParameter("enrollno"));
+		System.out.println("Form1_submit");
+		Cookie cemail=new Cookie("email",(String) request.getSession().getAttribute("email"));
+		Cookie cname=new Cookie("name",(String) request.getSession().getAttribute("name"));
+		Cookie cenrollno=new Cookie("enrollno",(String)request.getSession().getAttribute("enrollno"));
 		Cookie ccorr_address=new Cookie("corr_address",request.getParameter("corr_address"));
 		Cookie cmobile=new Cookie("mobile",request.getParameter("mobile"));
 		Cookie cphd=new Cookie("phd",request.getParameter("phd"));
@@ -56,22 +57,22 @@ public class Form1_submit extends HttpServlet {
 		Cookie cperm_address=new Cookie("perm_address",request.getParameter("perm_address"));
 		Cookie cpin=new Cookie("pin",request.getParameter("pin"));
 		response.addCookie(cemail);response.addCookie(cname);response.addCookie(cenrollno);response.addCookie(ccorr_address);response.addCookie(cmobile);response.addCookie(cphd);response.addCookie(cphd1);response.addCookie(cphd2);response.addCookie(cphd3);response.addCookie(cgender);response.addCookie(ccategory);response.addCookie(cdob);response.addCookie(cperm_address);response.addCookie(cpin);response.addCookie(cfather);response.addCookie(cnationality);response.addCookie(cdefence);response.addCookie(cphydis);
-		System.out.println(cemail.getValue());
-		System.out.println(cname.getValue());
-		System.out.println(cenrollno.getValue());
-		System.out.println(ccorr_address.getValue());
-		System.out.println(cmobile.getValue());
-		System.out.println(cphd.getValue());
-		System.out.println(cphd1.getValue());System.out.println(cphd2.getValue());System.out.println(cphd3.getValue());
-		System.out.println(cgender.getValue());
-		System.out.println(ccategory.getValue());
-		System.out.println(cphydis.getValue());
-		System.out.println(cdob.getValue());
-		System.out.println(cdefence.getValue());
-		System.out.println(cfather.getValue());
-		System.out.println(cnationality.getValue());
-		System.out.println(cperm_address.getValue());
-		System.out.println(cpin.getValue());
+//		System.out.println(cemail.getValue());
+//		System.out.println(cname.getValue());
+//		System.out.println(cenrollno.getValue());
+//		System.out.println(ccorr_address.getValue());
+//		System.out.println(cmobile.getValue());
+//		System.out.println(cphd.getValue());
+//		System.out.println(cphd1.getValue());System.out.println(cphd2.getValue());System.out.println(cphd3.getValue());
+//		System.out.println(cgender.getValue());
+//		System.out.println(ccategory.getValue());
+//		System.out.println(cphydis.getValue());
+//		System.out.println(cdob.getValue());
+//		System.out.println(cdefence.getValue());
+//		System.out.println(cfather.getValue());
+//		System.out.println(cnationality.getValue());
+//		System.out.println(cperm_address.getValue());
+//		System.out.println(cpin.getValue());
 		request.getRequestDispatcher("Form2").forward(request, response);
 	}
 

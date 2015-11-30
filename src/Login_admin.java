@@ -8,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.scribe.builder.ServiceBuilder;
+import org.scribe.oauth.OAuthService;
 
 /**
  * Servlet implementation class Login_admin
@@ -15,7 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Login_admin")
 public class Login_admin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static final String CLIENT_ID = "508507827379-gf3h608b2rbuafovsp2sn43bhgaa3e9b.apps.googleusercontent.com"; 
+	  private static final String CLIENT_SECRET = "MJIjg18oByfpwjuN8ZxXbll3";
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -35,29 +40,21 @@ public class Login_admin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Login_admin");
 		// TODO Auto-generated method stub
-		response.setContentType("text/html");
-		String username=null,password=null;
-		if(request.getParameter("admin_username")!=null && request.getParameter("admin_password")!=null)
-		{	System.out.println("crentials not null");
-			username=request.getParameter("admin_username");
-			password=request.getParameter("admin_password");
-			System.out.println(username+" "+password);
-
-		}
-		int flag=0;
-		//if(((username.equals("admin"))==true) && ((password.equals("admin123"))==true))
-		{
-			flag=1;
-		}
-		if(flag==1)
-			request.getRequestDispatcher("filter1.html").include(request, response);
-		else
-		{
-			String error="Invalid credentials";
-		request.getRequestDispatcher("Login_admin_form").forward(request, response);
-}
-		//request.getRequestDispatcher("Login_Admin.html").include(request, response);
+		ServiceBuilder builder= new ServiceBuilder(); 
+	      OAuthService service = builder.provider(Google2Api.class) 
+	         .apiKey(CLIENT_ID) 
+	         .apiSecret(CLIENT_SECRET) 
+	         .callback("http://localhost/project2/oauthcallback") 
+	         .scope("openid email " + 
+	               "https://www.googleapis.com/auth/plus.login " + 
+	               "https://www.googleapis.com/auth/plus.me")  
+	         .debug() 
+	         .build(); //Now build the call
+	      HttpSession sess = request.getSession(); 
+	      sess.setAttribute("oauth2Service", service);
+	      response.sendRedirect(service.getAuthorizationUrl(null)); 
 	}
 
 }
