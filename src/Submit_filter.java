@@ -479,13 +479,13 @@ public class Submit_filter extends HttpServlet {
 	isgate_score=true;
 	}
 	//System.out.println(fdate_from.getValue());
-	if((String)session.getAttribute("date_from")!=null)
+	if(!((String)session.getAttribute("date_from")).equals(""))
 	{
 	isdate_from=true;
 	System.out.println("date from set");
 	}
 
-	if((String)session.getAttribute("date_upto")!=null)
+	if(!((String)session.getAttribute("date_upto")).equals(""))
 	{
 		System.out.println("date upto set");
 	isdate_upto=true;
@@ -619,10 +619,12 @@ public class Submit_filter extends HttpServlet {
 			pgpercent=Float.parseFloat((String) session.getAttribute("pg_percent"));
 		if(((String)session.getAttribute("gate_score")).length()!=0  &&!(((String)session.getAttribute("gate_score")).equals("\0")))
 			gate_score=Float.parseFloat((String) session.getAttribute("gate_score"));
+		try{
 		if(session.getAttribute("date_from")!=null)
-    	date_from=LocalDate.parse((String)session.getAttribute("date_from"), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+    	date_from=LocalDate.parse((String)session.getAttribute("date_from"), DateTimeFormatter.ofPattern("yyyy-MM-dd"));}catch(Exception e){date_from=null;}
+		try{
 		if(session.getAttribute("date_upto")!=null)
-    	date_upto=LocalDate.parse((String)session.getAttribute("date_upto"), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+    	date_upto=LocalDate.parse((String)session.getAttribute("date_upto"), DateTimeFormatter.ofPattern("yyyy-MM-dd"));}catch(Exception e){date_upto=null;}
     	
 	}
 

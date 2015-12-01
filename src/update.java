@@ -60,7 +60,7 @@ public class update extends HttpServlet {
 		BufferedWriter bw;
 		try{
 			bw=new BufferedWriter(new FileWriter("./src/temp"+request.getParameter("act")+".txt"));
-			bw.write("Name: "+s.Name+"\nEnroll no: "+s.Enrollno+"\nEmail: "+s.Email+"\nCorrespondence Address: "+s.Corr_Address+"\nMobile: "+s.Mobile+"\nStream: "+s.Stream+"\nPHD Area1: "+s.Area1+"\nPHD Area2: "+s.Area2+"\nPHD Area 3: "+s.Area3+"\nGender: "+s.Gender+"\nCategory: "+s.Category+"\nPhysically Disabled: "+s.Handicap+"\nDOB: "+s.DOB+"\nWard of Defense Employee? "+s.Defense+"\nFather's Name: "+s.FName+"\nNationality: "+s.Nationality+"\nPermanent Address: "+s.Perm_Address+"\nPIN: "+s.PIN+"\n");
+			bw.write("Name: "+s.Name+"\nEnroll no: "+s.Enrollno+"\nEmail: "+s.Email+"\nCorrespondence Address: "+s.Corr_Address+"\nMobile: "+s.Mobile+"\nStream: "+s.Stream+"\nPHD Area1: "+s.Area1+"\nGender: "+s.Gender+"\nCategory: "+s.Category+"\nPhysically Disabled: "+s.Handicap+"\nDOB: "+s.DOB+"\nWard of Defense Employee? "+s.Defense+"\nFather's Name: "+s.FName+"\nNationality: "+s.Nationality+"\nPermanent Address: "+s.Perm_Address+"\nPIN: "+s.PIN+"\n");
 			bw.write("X Board: "+s.XBoard+"\nX Marks: "+s.XMarks+"\nX Year: "+s.XYear+"\nXII Board: "+s.XIIBoard+"\nXII Marks: "+s.XIIMarks+"\nXII Year: "+s.XIIYear+"\nDegree: "+s.Degree+"\nDepartment: "+s.Department+"\nCollege: "+s.College+"\nUniversity: "+s.University+"\nCity: "+s.City+"\nState: "+s.State+"\nGraduation Year: "+s.GradYear+"\nCGPA or Marks specified?"+s.cgpaormarks+"\nCGPA: "+s.CGPA+"\nMarks: "+s.Marks+"\nApplying for ECE? "+s.ApplyECE+"\nPG Done? "+s.PGDone+"\nAny Other Degree? "+s.OtherDegree+"\nTaken GATE? "+s.TakenGATE+"\nAchievements: "+s.Achievements);
 			bw.write("\nTimeStamp: "+s.TimeStamp);
 			bw.close();
