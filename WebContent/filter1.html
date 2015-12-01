@@ -19,7 +19,7 @@
 <input type="text" name="fname" id="fname"></p>
 <p>	<h3>Enrollment No</h3>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="text" name="fenroll_no" id="fenroll_no"></p>
+		<input type="text" name="fenroll_no" id="fenroll_no"></p><span id="tfenroll_no"></span>
 		
 		<p><h3>Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
 <select id="fcategory" name="fcategory">
@@ -56,6 +56,13 @@
 	function func()
 	{
 	var txt;var check;var flag=0;
+	field="fenroll_no";
+	txt=document.getElementById("fenroll_no").value;
+	if(!(txt.length==0) && (isNaN(txt) || txt < 1 || txt != parseInt(txt, 10))){
+		document.getElementById("tfenroll_no").innerHTML = "Invalid" ;flag=1;
+		}
+	else
+		document.getElementById("tfenroll_no").innerHTML = "" ;
 	field="fdob";
 	txt = document.getElementsByName(field);
 	check = -1;

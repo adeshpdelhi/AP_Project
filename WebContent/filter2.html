@@ -128,12 +128,13 @@
 				</div>
 				
 <script>
-function func(){
-var flag=0;
-field="fx_percent";
+	function func(){
+	var flag=0;var field;
+	field="fx_percent";
 		if ((document.getElementById('fx_lt').checked==true) || (document.getElementById('fx_eq').checked==true) || (document.getElementById('fx_gt').checked)==true) 
 			{
-				if(!(document.getElementById('fx_percent').value))
+				var txt1=document.getElementById(field).value;
+				if(txt1.length==0 || isNaN(txt1) || txt1<1 || txt1 >100)
 				
 					{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
 				
@@ -144,8 +145,8 @@ field="fx_percent";
 			
 		else{
 
-				if((document.getElementById('fx_percent').value))
-				
+				var txt1=document.getElementById(field).value;
+				if(txt1.length!=0)
 							{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
 			
 				else
@@ -156,19 +157,20 @@ field="fx_percent";
 field="fxii_percent";
 		if ((document.getElementById('fxii_lt').checked==true) || (document.getElementById('fxii_eq').checked==true) || (document.getElementById('fxii_gt').checked)==true) 
 			{
-				if(!(document.getElementById('fxii_percent').value))
+				var txt1=document.getElementById(field).value;
+				if(txt1.length==0 || isNaN(txt1) || txt1<1 || txt1 >100)
 				
 					{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
 				
 					
 				else
-					document.getElementById("t"+field).innerHTML = "";
+					document.getElementById("t"+field).innerHTML = "" ;
 			}
 			
 		else{
 
-				if((document.getElementById('fxii_percent').value))
-				
+				var txt1=document.getElementById(field).value;
+				if(txt1.length!=0)
 							{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
 			
 				else
@@ -180,29 +182,8 @@ field="fxii_percent";
 field="fgrad_percent";
 		if ((document.getElementById('fgrad_lt').checked==true) || (document.getElementById('fgrad_eq').checked==true) || (document.getElementById('fgrad_gt').checked)==true) 
 			{
-				if(!(document.getElementById('fgrad_percent').value))
-				
-					{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
-				
-					
-				else
-					document.getElementById("t"+field).innerHTML = "";
-			}
-			
-		else{
-
-				if((document.getElementById('fgrad_percent').value))
-				
-							{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
-			
-				else
-							document.getElementById("t"+field).innerHTML = "" ;
-			}	
-			
-			field="fpg_percent";
-		if ((document.getElementById('fpg_lt').checked==true) || (document.getElementById('fpg_eq').checked==true) || (document.getElementById('fpg_gt').checked)==true) 
-			{
-				if(!(document.getElementById('fpg_percent').value))
+				var txt1=document.getElementById(field).value;
+				if(txt1.length==0 || isNaN(txt1) || txt1<1 || txt1 >100)
 				
 					{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
 				
@@ -213,13 +194,37 @@ field="fgrad_percent";
 			
 		else{
 
-				if((document.getElementById('fpg_percent').value))
-				
+				var txt1=document.getElementById(field).value;
+				if(txt1.length!=0)
 							{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
 			
 				else
 							document.getElementById("t"+field).innerHTML = "" ;
 			}
+
+			field="fpg_percent";
+		if ((document.getElementById('fpg_lt').checked==true) || (document.getElementById('fpg_eq').checked==true) || (document.getElementById('fpg_gt').checked)==true) 
+			{
+				var txt1=document.getElementById(field).value;
+				if(txt1.length==0 || isNaN(txt1) || txt1<1 || txt1 >100)
+				
+					{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+				
+					
+				else
+					document.getElementById("t"+field).innerHTML = "" ;
+			}
+			
+		else{
+
+				var txt1=document.getElementById(field).value;
+				if(txt1.length!=0)
+							{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+			
+				else
+							document.getElementById("t"+field).innerHTML = "" ;
+			}
+
 			
 			
 			
@@ -227,7 +232,8 @@ field="fgrad_percent";
 			field="fgate_score";
 		if ((document.getElementById('fgate_lt').checked==true) || (document.getElementById('fgate_eq').checked==true) || (document.getElementById('fgate_gt').checked)==true) 
 			{
-				if(!(document.getElementById('fgate_score').value))
+				var txt1=document.getElementById(field).value;
+				if(txt1.length==0 || isNaN(txt1) || txt1<1 || txt1 >100)
 				
 					{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
 				
@@ -238,15 +244,18 @@ field="fgrad_percent";
 			
 		else{
 
-				if((document.getElementById('fgate_score').value))
-				
+				var txt1=document.getElementById(field).value;
+				if(txt1.length!=0)
 							{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
 			
 				else
 							document.getElementById("t"+field).innerHTML = "" ;
 			}
+
 			
-			if(flag==0)
+
+			
+	if(flag==0)
 		document.getElementById("Submit").click();
 
 
