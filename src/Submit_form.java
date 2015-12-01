@@ -139,6 +139,91 @@ public class Submit_form extends HttpServlet {
 	    	if(cookieName.equals("marks"))
 	    		if(cookieValue.length()!=0)
 	    				c.Marks=Float.parseFloat(cookieValue);
+	    	if(cookieName.equals("pg_pref1"))
+	    		c.Area1=cookieValue;
+	    	if(cookieName.equals("pg_pref2"))
+	    		c.Area2=cookieValue;
+	    	if(cookieName.equals("pg_pref3"))
+	    		c.Area3=cookieValue;
+	    	if(cookieName.equals("opt_checkbox1")){
+	    		if(cookieValue.equals("Yes"))
+	    			c.ApplyECE=true;
+	    		else
+	    			c.ApplyECE=false;
+	    		}
+	    	if(cookieName.equals("opt_checkbox2")){
+	    		if(cookieValue.equals("Yes"))
+	    			c.PGDone=true;
+	    		else
+	    			c.PGDone=false;
+	    		}
+	    	if(cookieName.equals("opt_checkbox3")){
+	    		if(cookieValue.equals("Yes"))
+	    			c.OtherDegree=true;
+	    		else
+	    			c.OtherDegree=false;
+	    		}
+	    	if(cookieName.equals("opt_checkbox4")){
+	    		if(cookieValue.equals("Yes"))
+	    			c.TakenGATE=true;
+	    		else
+	    			c.TakenGATE=false;
+	    		}
+	    	if(cookieName.equals("pg_degree"))
+	    		c.PGDegree=cookieValue;
+	    	if(cookieName.equals("pg_department"))
+	    		c.PGDepartment=cookieValue;
+	    	if(cookieName.equals("pg_college"))
+	    		c.PGCollege=cookieValue;
+	    	if(cookieName.equals("pg_city"))
+	    		c.PGCity=cookieValue;
+	    	if(cookieName.equals("pg_state"))
+	    		c.PGState=cookieValue;
+	    	if(cookieName.equals("pg_grad_year"))
+	    		if(cookieValue.length()!=0)
+	    		c.PGYear=Integer.parseInt(cookieValue);
+	    	if(cookieName.equals("pg_corm") && cookieValue.equals("cgpa"))
+	    			c.pgcgpaormarks=true;
+	    	if(cookieName.equals("pg_cgpa"))
+	    		if(cookieValue.length()!=0)
+	    			c.PGCGPA=Float.parseFloat(cookieValue);
+	    	if(cookieName.equals("pg_totcgpa"))
+	    		if(cookieValue.length()!=0)
+	    		c.PGTotalCGPA=Integer.parseInt(cookieValue);
+	    	if(cookieName.equals("pg_corm") && cookieValue.equals("marks"))
+	    			c.pgcgpaormarks=false;
+	    	if(cookieName.equals("pg_marks"))
+	    		if(cookieValue.length()!=0)
+	    				c.PGMarks=Float.parseFloat(cookieValue);
+	    	if(cookieName.equals("other_exam"))
+	    		c.OtherExam=cookieValue;
+	    	if(cookieName.equals("other_subject"))
+	    		c.OtherSubject=cookieValue;
+	    	if(cookieName.equals("other_year"))
+	    		c.OtherYear=cookieValue;
+	    	if(cookieName.equals("other_score"))
+	    		if(cookieValue.length()!=0)
+	    			c.OtherScore=Float.parseFloat(cookieValue);
+	    	if(cookieName.equals("other_rank"))
+	    		if(cookieValue.length()!=0)
+	    			c.OtherRank=Integer.parseInt(cookieValue);
+	    	if(cookieName.equals("gate_area"))
+	    		c.GateArea=cookieValue;
+	    	if(cookieName.equals("gate_year"))
+	    		if(cookieValue.length()!=0)
+	    		c.GateYear=Integer.parseInt(cookieValue);
+	    	if(cookieName.equals("gate_marks"))
+	    		if(cookieValue.length()!=0)
+	    		c.GateMarks=Float.parseFloat(cookieValue);
+	    	if(cookieName.equals("gate_score"))
+	    		if(cookieValue.length()!=0)
+	    			c.GateScore=Float.parseFloat(cookieValue);
+	    	if(cookieName.equals("gate_rank"))
+	    		if(cookieValue.length()!=0)
+	    			c.GateRank=Integer.parseInt(cookieValue);
+	    	if(cookieName.equals("achievements"))
+	    		c.Achievements=cookieValue;
+	    	
 		}
 		c.Display(1);
 		c.Display(2);

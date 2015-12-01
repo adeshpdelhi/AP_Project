@@ -95,7 +95,52 @@ public class Form2_submit extends HttpServlet {
 		response.addCookie(cXBoard);response.addCookie(cXIIBoard);response.addCookie(cXMarks);response.addCookie(cXIIMarks);response.addCookie(cXYear);response.addCookie(cXIIYear);response.addCookie(cdegree);response.addCookie(cdept);response.addCookie(ccollege);response.addCookie(cuniversity);response.addCookie(ccity);response.addCookie(cstate);response.addCookie(cgrad_year);response.addCookie(ccorm);response.addCookie(ccgpa);response.addCookie(cmarks);response.addCookie(ctotal_cgpa);
 		System.out.println("File CV: "+request.getParameter("upload_cv"));
 		System.out.println("File SOP: "+request.getParameter("upload_sop"));
-		//request.getRequestDispatcher("Submit_form").forward(request, response);
+		////////////////////////////////////////////////////////////////
+		Cookie copt_checkbox1=new Cookie("opt_checkbox1",(request).getParameter("opt_checkbox1"));
+		Cookie copt_checkbox2=new Cookie("opt_checkbox2",(request).getParameter("opt_checkbox2"));
+		Cookie copt_checkbox3=new Cookie("opt_checkbox3",(request).getParameter("opt_checkbox3"));
+		Cookie copt_checkbox4=new Cookie("opt_checkbox4",(request).getParameter("opt_checkbox4"));
+		
+		Cookie cpg_pref1=new Cookie("pg_pref1",request.getParameter("pg_pref1"));
+		Cookie cpg_pref2=new Cookie("pg_pref2",request.getParameter("pg_pref2"));
+		Cookie cpg_pref3=new Cookie("pg_pref3",request.getParameter("pg_pref3"));
+		Cookie cpg_pref4=new Cookie("pg_pref4",request.getParameter("pg_pref4"));
+		
+		Cookie cpg_college=new Cookie("pg_college",request.getParameter("pg_college"));
+		Cookie cpg_city=new Cookie("pg_city",request.getParameter("pg_city"));
+		Cookie cpg_state=new Cookie("pg_state",request.getParameter("pg_state"));
+		Cookie cpg_department=new Cookie("pg_department",request.getParameter("pg_department"));
+		Cookie cpg_degree=new Cookie("pg_degree",request.getParameter("pg_degree"));
+		Cookie cpg_thesis=new Cookie("pg_thesis",request.getParameter("pg_thesis"));
+		Cookie cpg_year=new Cookie("pg_year",request.getParameter("pg_year"));
+		Cookie cpg_corm=new Cookie("pg_corm",request.getParameter("pg_corm"));
+		Cookie cpg_cgpa=new Cookie("pg_cgpa",request.getParameter("pg_cgpa"));
+		Cookie cpg_totcgpa=new Cookie("pg_totcgpa",request.getParameter("pg_totcgpa"));
+		Cookie cpg_marks=new Cookie("pg_marks",request.getParameter("pg_marks"));
+		
+		Cookie cother_exam=new Cookie("other_exam",request.getParameter("other_exam"));
+		Cookie cother_subject=new Cookie("other_subject",request.getParameter("other_subject"));
+		Cookie cother_year=new Cookie("other_year",request.getParameter("other_year"));
+		Cookie cother_score=new Cookie("other_score",request.getParameter("other_score"));
+		Cookie cother_rank=new Cookie("other_rank",request.getParameter("other_rank"));
+		
+		Cookie cgate_area=new Cookie("gate_area",request.getParameter("gate_area"));
+		Cookie cgate_year=new Cookie("gate_year",request.getParameter("gate_year"));
+		Cookie cgate_marks=new Cookie("gate_marks",request.getParameter("gate_marks"));
+		Cookie cgate_score=new Cookie("gate_score",request.getParameter("gate_score"));
+		Cookie cgate_rank=new Cookie("gate_rank",request.getParameter("gate_rank"));
+		
+		Cookie cachiev=new Cookie("achievements",request.getParameter("achievements"));
+		
+		response.addCookie(cXBoard);response.addCookie(cXIIBoard);response.addCookie(cXMarks);response.addCookie(cXIIMarks);response.addCookie(cXYear);response.addCookie(cXIIYear);
+		response.addCookie(cdegree);response.addCookie(cdept);response.addCookie(ccollege);response.addCookie(cuniversity);response.addCookie(ccity);response.addCookie(cstate);
+		response.addCookie(cgrad_year);response.addCookie(ccorm);response.addCookie(ccgpa);response.addCookie(cmarks);response.addCookie(ctotal_cgpa);response.addCookie(copt_checkbox1);
+		response.addCookie(copt_checkbox2);response.addCookie(copt_checkbox3);response.addCookie(copt_checkbox4);response.addCookie(cpg_pref1);response.addCookie(cpg_pref2);response.addCookie(cpg_pref3);
+		response.addCookie(cpg_pref4);response.addCookie(cpg_college);response.addCookie(cpg_city);response.addCookie(cpg_state);response.addCookie(cpg_department);response.addCookie(cpg_degree);
+		
+		response.addCookie(cpg_thesis);response.addCookie(cpg_year);response.addCookie(cpg_corm);response.addCookie(cpg_cgpa);response.addCookie(cpg_totcgpa);response.addCookie(cpg_marks);
+		response.addCookie(cother_exam);response.addCookie(cother_subject);response.addCookie(cother_year);response.addCookie(cother_score);response.addCookie(cother_rank);response.addCookie(cgate_area);
+		response.addCookie(cgate_year);response.addCookie(cgate_marks);response.addCookie(cgate_score);response.addCookie(cgate_rank);response.addCookie(cachiev);
 		response.sendRedirect("Submit_form");
 	}
 

@@ -52,7 +52,7 @@ public class oauthcallback extends HttpServlet {
 	      ctx.start(new GetUserInfo(req, resp, ctx));
 	      HttpSession sess=req.getSession();
 	      while(sess.getAttribute("name")==null ||sess.getAttribute("email")==null);
-	      if(sess.getAttribute("email").equals("adesh14004@iiitd.ac.in") || sess.getAttribute("email").equals("rishabh14086@iiitd.ac.in"))
+	      if(sess.getAttribute("email").equals("rishabh14086@iiitd.ac.in"))
 	    	  req.getRequestDispatcher("Filter1").forward(req,resp);
 	      else
 	    	  req.getRequestDispatcher("Form1").forward(req,resp);
