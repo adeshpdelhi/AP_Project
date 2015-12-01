@@ -37,7 +37,7 @@ public class Filter1_submit extends HttpServlet {
         else
         	session.setAttribute("email","\0");
         System.out.println(request.getParameter("fenrollno"));
-        if(request.getParameter("fenrollno")!=null)
+        if(request.getParameter("fenroll_no")!=null)
         	session.setAttribute("enrollno",request.getParameter("fenroll_no"));
        else
            session.setAttribute("enrollno","\0");

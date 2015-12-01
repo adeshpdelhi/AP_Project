@@ -26,7 +26,7 @@
 </select></p>
 <p><h3>Post Graduation Degree</h3><span class="asteriskField">*</span>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<select id="fpg_degree" name="fpg_degree>
+<select id="fpg_degree" name="fpg_degree">
   <option value="All" selected="selected">All</option>
   <option value="M.Tech">M.Tech</option>
   <option value="MS">MS</option>
@@ -92,36 +92,163 @@
 			
 	<p><h3>Class X Board Percentage</h3><span class="asteriskField">*</span>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="checkbox" name="fx_lt" value="yes">Less Than<input type="checkbox" name="fx_eq" value="no">Equal<input type="checkbox" name="fx_gt" value="fx_gt">Greater Than
+		<input type="checkbox" name="fx_lt" id="fx_lt" value="yes">Less Than<input type="checkbox" name="fx_eq" id="fx_eq" value="no">Equal<input type="checkbox" name="fx_gt" id="fx_gt" value="fx_gt">Greater Than
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="text" name="fx_percent" id="fx_percent">
+		<input type="text" name="fx_percent" id="fx_percent"><span id="tfx_percent"></span>
 		
 		<p><h3>Class XII Board Percentage</h3><span class="asteriskField">*</span>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="checkbox" name="fxii_lt" value="fxii_lt">Less Than<input type="checkbox" name="fxii_eq" value="fxii_eq">Equal<input type="checkbox" name="fxii_gt" value="fxii_gt">Greater Than
+		<input type="checkbox" name="fxii_lt" id="fxii_lt" value="fxii_lt">Less Than<input type="checkbox" name="fxii_eq" id="fxii_eq" value="fxii_eq">Equal<input type="checkbox" name="fxii_gt"  id="fxii_gt" value="fxii_gt">Greater Than
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="text" name="fxii_percent" id="fxii_percent">
+		<input type="text" name="fxii_percent" id="fxii_percent"><span id="tfxii_percent"></span>
 		
 		<p><h3>Graduation Percentage</h3><span class="asteriskField">*</span>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="checkbox" name="fgrad_lt" value="fgrad_lt">Less Than<input type="checkbox" name="fgrad_eq" value="fgrad_eq">Equal<input type="checkbox" name="fgrad_gt" value="fgrad_gt">Greater Than
+		<input type="checkbox" name="fgrad_lt" id="fgrad_lt" value="fgrad_lt">Less Than<input type="checkbox" name="fgrad_eq" id="fgrad_eq" value="fgrad_eq">Equal<input type="checkbox" name="fgrad_gt" id="fgrad_gt" value="fgrad_gt">Greater Than
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="text" name="fgrad_percent" id="fgrad_percent">
+		<input type="text" name="fgrad_percent" id="fgrad_percent"><span id="tfgrad_percent"></span>
 		
 		<p><h3>Post Graduation Percentage</h3><span class="asteriskField">*</span>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="checkbox" name="fpg_lt" value="fpg_lt">Less Than<input type="checkbox" name="fpg_eq" value="fpg_eq">Equal<input type="checkbox" name="fpg_gt" value="fpg_gt">Greater Than
+		<input type="checkbox" name="fpg_lt" id="fpg_lt" value="fpg_lt">Less Than<input type="checkbox" name="fpg_eq" id="fpg_eq" value="fpg_eq">Equal<input type="checkbox" name="fpg_gt" id="fpg_gt" value="fpg_gt">Greater Than
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="text" name="fpg_percent" id="fpg_percent">
+		<input type="text" name="fpg_percent" id="fpg_percent"><span id="tfpg_percent"></span>
 		
 		<p><h3>Gate Score</h3><span class="asteriskField">*</span>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="checkbox" name="fgate_lt" value="fgate_lt">Less Than<input type="checkbox" name="fgate_eq" value="fgate_eq">Equal<input type="checkbox" name="fgate_gt" value="fgate_gt">Greater Than
+		<input type="checkbox" name="fgate_lt" id="fgate_lt" value="fgate_lt">Less Than<input type="checkbox" name="fgate_eq" id="fgate_eq" value="fgate_eq">Equal<input type="checkbox" name="fgate_gt" id="fgate_gt" value="fgate_gt">Greater Than
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="text" name="fgate_score" id="fgate_score">
+		<input type="text" name="fgate_score" id="fgate_score"><span id="tfgate_score"></span>
 		
 		
-		<br><center>
-<p><input type="submit" id="Proceed" value="Proceed"></p>
+		<br>
+		<center><button type="button" onclick="func()">Save and Proceed</button>
+		<input type="submit" name="Submit" id="Submit" style="display:none;">
 		</center>
 				</div>
+				
+<script>
+function func(){
+var flag=0;
+field="fx_percent";
+		if ((document.getElementById('fx_lt').checked==true) || (document.getElementById('fx_eq').checked==true) || (document.getElementById('fx_gt').checked)==true) 
+			{
+				if(!(document.getElementById('fx_percent').value))
+				
+					{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+				
+					
+				else
+					document.getElementById("t"+field).innerHTML = "" ;
+			}
+			
+		else{
+
+				if((document.getElementById('fx_percent').value))
+				
+							{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+			
+				else
+							document.getElementById("t"+field).innerHTML = "" ;
+			}
+
+			
+field="fxii_percent";
+		if ((document.getElementById('fxii_lt').checked==true) || (document.getElementById('fxii_eq').checked==true) || (document.getElementById('fxii_gt').checked)==true) 
+			{
+				if(!(document.getElementById('fxii_percent').value))
+				
+					{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+				
+					
+				else
+					document.getElementById("t"+field).innerHTML = "";
+			}
+			
+		else{
+
+				if((document.getElementById('fxii_percent').value))
+				
+							{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+			
+				else
+							document.getElementById("t"+field).innerHTML = "" ;
+			}
+
+	
+
+field="fgrad_percent";
+		if ((document.getElementById('fgrad_lt').checked==true) || (document.getElementById('fgrad_eq').checked==true) || (document.getElementById('fgrad_gt').checked)==true) 
+			{
+				if(!(document.getElementById('fgrad_percent').value))
+				
+					{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+				
+					
+				else
+					document.getElementById("t"+field).innerHTML = "";
+			}
+			
+		else{
+
+				if((document.getElementById('fgrad_percent').value))
+				
+							{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+			
+				else
+							document.getElementById("t"+field).innerHTML = "" ;
+			}	
+			
+			field="fpg_percent";
+		if ((document.getElementById('fpg_lt').checked==true) || (document.getElementById('fpg_eq').checked==true) || (document.getElementById('fpg_gt').checked)==true) 
+			{
+				if(!(document.getElementById('fpg_percent').value))
+				
+					{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+				
+					
+				else
+					document.getElementById("t"+field).innerHTML = "" ;
+			}
+			
+		else{
+
+				if((document.getElementById('fpg_percent').value))
+				
+							{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+			
+				else
+							document.getElementById("t"+field).innerHTML = "" ;
+			}
+			
+			
+			
+			
+			field="fgate_score";
+		if ((document.getElementById('fgate_lt').checked==true) || (document.getElementById('fgate_eq').checked==true) || (document.getElementById('fgate_gt').checked)==true) 
+			{
+				if(!(document.getElementById('fgate_score').value))
+				
+					{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+				
+					
+				else
+					document.getElementById("t"+field).innerHTML = "" ;
+			}
+			
+		else{
+
+				if((document.getElementById('fgate_score').value))
+				
+							{document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+			
+				else
+							document.getElementById("t"+field).innerHTML = "" ;
+			}
+			
+			if(flag==0)
+		document.getElementById("Submit").click();
+
+
+}
+</script>

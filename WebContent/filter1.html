@@ -38,11 +38,54 @@
 
 		
 		<p><h3>Date Of Birth</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="fdob" id="fdob" value="Before">Before<input type="radio" id="fdob" name="fdob" value="On">On<input type="radio" id="fdob" name="fdob" value="After">After</p>
+		<input type="radio" name="fdob" id="fdob" value="Before">Before<input type="radio" id="fdob" name="fdob" value="On">On<input type="radio" id="fdob" name="fdob" value="After">After </p><span id="tfdob"></span>
 		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="date" name="fdate" id="fdate"></p>
+		<input type="date" name="fdate" id="fdate" max="2015-12-02"></p><span id="tfdate"></span>
 
-		<br><center>
-<input type="submit"  id="Proceed" value="Proceed">
+		<br>
+
+
+<button type="button" onclick="func()">Proceed</button>
+<input type="submit" name="Submit" id="Submit" style="display:none;">
+
+
 		</center>
 	</div>
+	
+	<script>
+	function func()
+	{
+	var txt;var check;var flag=0;
+	field="fdob";
+	txt = document.getElementsByName(field);
+	check = -1;
+	for(var i=0; i < txt.length; i++){
+		if(txt[i].checked) {
+			check = i; 
+		}
+	}
+	if(check==-1 && document.getElementById('fdate').length==0)
+		var flag2=0;
+	if(check!=-1)
+		{
+					field="fdate";
+				txt = document.getElementById(field).value;
+				if (!txt) {
+					document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+				else
+					document.getElementById("t"+field).innerHTML = "" ;
+		}
+		else
+		{
+				field="fdate";
+				txt = document.getElementById(field).value;
+				if (txt) {
+					document.getElementById("t"+field).innerHTML = "Invalid" ;flag=1;}
+				else
+					document.getElementById("t"+field).innerHTML = "" ;
+		}
+		if(flag==0 || flag2==0)
+		document.getElementById("Submit").click();
+		
+	}
+	</script>

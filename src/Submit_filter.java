@@ -373,11 +373,16 @@ public class Submit_filter extends HttpServlet {
 	isemail=true;
 	}
 
-	if(( ((String)session.getAttribute("enrollno")).equals("\0"))==false)
-	{
+	//if(( ((String)session.getAttribute("enrollno")).equals("\0"))==true)
+	try{
+	Integer.parseInt((String)session.getAttribute("enrollno"));
 	isenrollno=true;
 	}
-	if(((String)session.getAttribute("category")!=null) && ((String)session.getAttribute("category")=="All"))
+	catch(Exception e){isenrollno=false;}
+	
+		
+	
+	if( !((String)session.getAttribute("category")).equals("All"))
 	{
 		System.out.println("I WILL CHECK CATEGORY NOW");
 	iscategory=true;
@@ -399,38 +404,38 @@ public class Submit_filter extends HttpServlet {
 	isdob=true;
 	}
 
-	if((String)session.getAttribute("stream")=="All" && ((String)session.getAttribute("stream")!=null))
+	if(!((String)session.getAttribute("stream")).equals("All"))// && ((String)session.getAttribute("stream")!=null))
 
 	{
 	isphdStream=true;
 	}
 
-	if((String)session.getAttribute("fxboard")=="All" && ((String)session.getAttribute("fxboard")!=null))
+	if(!((String)session.getAttribute("xboard")).equals("All"))// && ((String)session.getAttribute("xboard")!=null))
 	{
 	isXBoard=true;
 	}
 
-	if((String)session.getAttribute("fxiiboard")=="All" && ((String)session.getAttribute("fxiiboard")!=null))
+	if(!((String)session.getAttribute("xiiboard")).equals("All"))// && ((String)session.getAttribute("xiiboard")!=null))
 	{
 	isXIIBoard=true;
 	}
 
-	if((String)session.getAttribute("grad_degree")=="All" && ((String)session.getAttribute("grad_degree")!=null))
+	if(!((String)session.getAttribute("grad_degree")).equals("All"))// && ((String)session.getAttribute("grad_degree")!=null))
 	{
 	isgradDegree=true;
 	}
 
-	if((String)session.getAttribute("pg_degree")=="All" && ((String)session.getAttribute("pg_degree")!=null))
+	if(!((String)session.getAttribute("pg_degree")).equals("All"))// && ((String)session.getAttribute("pg_degree")!=null))
 	{
 	ispgDegree=true;
 	}
 
-	if((String)session.getAttribute("grad_dep")=="All" && ((String)session.getAttribute("grad_dep")!=null))
+	if(!((String)session.getAttribute("grad_dep")).equals("All"))// && ((String)session.getAttribute("grad_dep")!=null))
 	{
 	isgradDepartment=true;
 	}
 
-	if((String)session.getAttribute("pg_dep")=="All" && ((String)session.getAttribute("pg_dep")!=null))
+	if(!((String)session.getAttribute("pg_dep")).equals("All"))// && ((String)session.getAttribute("pg_dep")!=null))
 	{
 	ispgDepartment=true;
 	}
@@ -445,12 +450,12 @@ public class Submit_filter extends HttpServlet {
 	ispg_university=true;
 	}
 
-	if((String)session.getAttribute("grad_state")=="All" && ((String)session.getAttribute("grad_state")!=null))
+	if(!((String)session.getAttribute("grad_state")).equals("All"))// && ((String)session.getAttribute("grad_state")!=null))
 	{
 	isug_state=true;
 	}
 
-	if((String)session.getAttribute("pg_state")=="All" && ((String)session.getAttribute("pg_state")!=null))
+	if(!((String)session.getAttribute("pg_state")).equals("All"))// && ((String)session.getAttribute("pg_state")!=null))
 	{
 	ispg_state=true;
 	}
@@ -507,7 +512,7 @@ public class Submit_filter extends HttpServlet {
 			c=(Candidate)in.readObject();
 			cands.add(c);
 			main.add(c);
-			System.out.println("Name is "+c.Name);
+			//System.out.println("Name is "+c.Name);
 			//c.Display(1);
 			}
 
@@ -521,6 +526,7 @@ public class Submit_filter extends HttpServlet {
     	name=(String)session.getAttribute("name");//,request.getParameter("fname"));
         email=(String)session.getAttribute("email");//,request.getParameter("femail"));
         if(!(((String)session.getAttribute("enrollno")).equals("\0")))
+        	if(  ((String)session.getAttribute("enrollno")).length()!=0   )
         enrollno=Integer.parseInt((String)session.getAttribute("enrollno")); //',request.getParameter("fenrollno"));
         if(session.getAttribute("gender")!=null)
         gender=(String)session.getAttribute("gender");//,request.getParameter("fgender"));
@@ -652,7 +658,7 @@ public class Submit_filter extends HttpServlet {
 		}
         System.out.println((String)session.getAttribute("date_from")+" "+(String)session.getAttribute("date_upto"));
         Display();
-    	
+        System.out.println("Inside submit filter Enroll no = "+(String)session.getAttribute("enrollno"));
         is(request,response);
         validate();
         System.out.println("Calling display");
@@ -661,7 +667,7 @@ public class Submit_filter extends HttpServlet {
         PrintWriter pw=response.getWriter();
 		pw.print("<table style=\"width:50%\"><tr><td><b><u>Enroll no</u></b></td><td><u><b>Name</u></b></td><td><u><b>Link</u></b><td></tr>");
         for (int i=0;i<main.size();i++){
-        	System.out.println(main.get(i).Name+" "+main.get(i).Email);
+        	//System.out.println(main.get(i).Name+" "+main.get(i).Email);
         	pw.print("<tr><td>"+main.get(i).Enrollno+"</td><td>"+main.get(i).Name+"</td><td><form name=\"myform\" action=\"update\" method=\"GET\" ><input type=\"submit\" name =\"act\" value=\""+main.get(i).Enrollno+"\"></form></</td></tr>");
         }
 //        for (int i=0;i<filtered.size();i++){
