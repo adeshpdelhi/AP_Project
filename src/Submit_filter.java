@@ -271,19 +271,25 @@ public class Submit_filter extends HttpServlet {
 		if(isgradpercent)
 		{
 			if(grad_gt){
-				for(int i=0;i<main.size();i++)
+				for(int i=0;i<main.size();i++){
+					try{
 					if(main.get(i).Marks>gradpercent)
 						filtered.add(main.get(i));
+					}catch(Exception e){}}
 			}
 			if(grad_lt){
-				for(int i=0;i<main.size();i++)
+				for(int i=0;i<main.size();i++){
+					try{
 					if(main.get(i).Marks<gradpercent)
 						filtered.add(main.get(i));
+					}catch(Exception e){}}
 			}
 			if(grad_eq){
-				for(int i=0;i<main.size();i++)
+				for(int i=0;i<main.size();i++){
+					try{
 					if(main.get(i).Marks==gradpercent)
 						filtered.add(main.get(i));
+					}catch(Exception e){}}
 			}
 			if(grad_gt || grad_lt || grad_eq)
 			{
@@ -295,19 +301,25 @@ public class Submit_filter extends HttpServlet {
 		if(ispgpercent)
 		{
 			if(pg_gt){
-				for(int i=0;i<main.size();i++)
+				for(int i=0;i<main.size();i++){
+					try{
 					if(main.get(i).PGDone &&main.get(i).PGMarks>pgpercent)
 						filtered.add(main.get(i));
+					}catch(Exception e){}}
 			}
 			if(pg_lt){
-				for(int i=0;i<main.size();i++)
+				for(int i=0;i<main.size();i++){
+					try{
 					if(main.get(i).PGDone &&main.get(i).PGMarks<pgpercent)
 						filtered.add(main.get(i));
+					}catch(Exception e){}	}
 			}
 			if(pg_eq){
-				for(int i=0;i<main.size();i++)
+				for(int i=0;i<main.size();i++){
+					try{
 					if(main.get(i).PGDone &&main.get(i).PGMarks==pgpercent)
 						filtered.add(main.get(i));
+					}catch(Exception e){}}
 			}
 			if(pg_gt || pg_lt || pg_eq)
 			{
@@ -319,19 +331,25 @@ public class Submit_filter extends HttpServlet {
 		if(isgate_score)
 		{
 			if(gate_gt){
-				for(int i=0;i<main.size();i++)
+				for(int i=0;i<main.size();i++){
+					try{
 					if(main.get(i).TakenGATE && main.get(i).GateScore>gate_score)
 						filtered.add(main.get(i));
+					}catch(Exception e){}}
 			}
 			if(gate_lt){
-				for(int i=0;i<main.size();i++)
+				for(int i=0;i<main.size();i++){
+					try{
 					if(main.get(i).TakenGATE &&  main.get(i).GateScore<gate_score)
 						filtered.add(main.get(i));
+					}catch(Exception e){}}
 			}
 			if(gate_eq){
-				for(int i=0;i<main.size();i++)
+				for(int i=0;i<main.size();i++){
+					try{
 					if(main.get(i).TakenGATE &&  main.get(i).GateScore==gate_score)
 						filtered.add(main.get(i));
+					}catch(Exception e){}}
 			}
 			if( (gate_gt || gate_lt || gate_eq))
 			{
